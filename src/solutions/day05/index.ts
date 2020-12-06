@@ -1,4 +1,3 @@
-import { isBetween } from "../../utilities/number";
 import { Solution } from "src/utilities/solver";
 
 export default class Day01 implements Solution {
