@@ -1,4 +1,4 @@
-import { Solution } from "src/utilities/solver";
+import { Solution } from "../../utilities/solver.ts";
 
 export default class Day02 implements Solution {
   async solvePart1(input: string[]) {
@@ -32,8 +32,8 @@ export default class Day02 implements Solution {
       .filter(
         (p) =>
           Number(p.password[p.lowerBound - 1] === p.literal) +
-            Number(p.password[p.upperBound - 1] === p.literal) ===
-          1
+              Number(p.password[p.upperBound - 1] === p.literal) ===
+            1,
       ).length;
   }
 }

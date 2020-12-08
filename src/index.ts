@@ -1,7 +1,5 @@
-import { solve } from "./utilities/solver";
+import { solve } from "./utilities/solver.ts";
 
-(async function() {
-    const day = 8;
+const day = 8;
 
-    console.log(await solve(day));
-})();
+console.log(await solve(day));

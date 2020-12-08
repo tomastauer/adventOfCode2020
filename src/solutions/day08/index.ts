@@ -1,10 +1,9 @@
-import { sum } from "../../utilities/array";
-import { Solution } from "src/utilities/solver";
+import { Solution } from "../../utilities/solver.ts";
 
 type Instruction = {
   instruction: string;
   value: number;
-}
+};
 
 export default class Day08 implements Solution {
   async solvePart1(input: string[]) {
@@ -12,35 +11,38 @@ export default class Day08 implements Solution {
       const [instruction, value] = i.split(" ");
       return { instruction, value: Number(value) };
     });
- 
+
     const program = new Program(instructions);
     return program.run()[1];
   }
 
   async solvePart2(input: string[]) {
-    const instructions = input.map((i) => {
-      const [instruction, value] = i.split(" ");
-      return { instruction, value: Number(value) };
-    }).reduce((acc, curr, i, arr) => {
-      if(curr.instruction !== 'acc') {
-        const nop = [...arr];
-        nop[i] = {instruction: 'nop', value: curr.value};
+    const instructions = input
+      .map((i) => {
+        const [instruction, value] = i.split(" ");
+        return { instruction, value: Number(value) };
+      })
+      .reduce((acc, curr, i, arr) => {
+        if (curr.instruction !== "acc") {
+          const nop = [...arr];
+          nop[i] = { instruction: "nop", value: curr.value };
 
-        const jmp = [...arr];
-        jmp[i] = {instruction: 'jmp', value: curr.value}
-        acc.push(nop, jmp);
-      }
+          const jmp = [...arr];
+          jmp[i] = { instruction: "jmp", value: curr.value };
+          acc.push(nop, jmp);
+        }
 
-      return acc;
-    }, [] as Instruction[][]);
- 
-    return instructions.map((i) => new Program(i).run()).find(p => p[0] === true)![1];
+        return acc;
+      }, [] as Instruction[][]);
+
+    return instructions
+      .map((i) => new Program(i).run())
+      .find((p) => p[0] === true)![1];
   }
 }
 
 class Program {
-  constructor(private instructions: Instruction[]) {
-  }
+  constructor(private instructions: Instruction[]) {}
 
   run() {
     const visited: number[] = [];
@@ -63,6 +65,6 @@ class Program {
         pointer += current.value;
       }
     }
-    return [pointer >= this.instructions.length-1, registry] as const;
+    return [pointer >= this.instructions.length - 1, registry] as const;
   }
 }

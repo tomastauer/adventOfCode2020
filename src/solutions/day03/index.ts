@@ -1,5 +1,5 @@
-import { sum } from "../../utilities/array";
-import { Solution } from "src/utilities/solver";
+import { sum } from "../../utilities/array.ts";
+import { Solution } from "../../utilities/solver.ts";
 
 export default class Day03 implements Solution {
   async solvePart1(input: string[]) {

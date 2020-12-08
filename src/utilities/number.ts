@@ -1,4 +1,8 @@
-export function isBetween(value: any, lowerBound: number, upperBound: number) {
-	const n = Number(value);
-	return n >= lowerBound && n <= upperBound;
+export function isBetween(
+  value: unknown,
+  lowerBound: number,
+  upperBound: number,
+) {
+  const n = Number(value);
+  return n >= lowerBound && n <= upperBound;
 }

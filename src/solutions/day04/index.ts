@@ -1,5 +1,5 @@
-import { isBetween } from "../../utilities/number";
-import { Solution } from "src/utilities/solver";
+import { Solution } from "../../utilities/solver.ts";
+import { isBetween } from "../../utilities/number.ts";
 
 export default class Day04 implements Solution {
   async solvePart1(input: string[]) {

@@ -1,15 +1,15 @@
-import { sum } from "../../utilities/array";
-import { Solution } from "src/utilities/solver";
+import { sum } from "../../utilities/array.ts";
+import { Solution } from "../../utilities/solver.ts";
 
 export default class Day07 implements Solution {
   async solvePart1(input: string[]) {
     const tree = new Tree(input);
-    return tree.traverseAllParents('shiny gold').length;
+    return tree.traverseAllParents("shiny gold").length;
   }
 
   async solvePart2(input: string[]) {
     const tree = new Tree(input);
-    return tree.countAllChildren('shiny gold') - 1;
+    return tree.countAllChildren("shiny gold") - 1;
   }
 }
 
@@ -42,12 +42,10 @@ class Tree {
     const forestNodes: Record<string, Node> = {};
 
     Object.keys(nodes).forEach((n) => {
-      const currNode =
-        forestNodes[n] ??
+      const currNode = forestNodes[n] ??
         (forestNodes[n] = { type: n, children: [], parents: [] });
       nodes[n].forEach((child) => {
-        const childNode =
-          forestNodes[child.type] ??
+        const childNode = forestNodes[child.type] ??
           (forestNodes[child.type] = {
             type: child.type,
             children: [],
@@ -80,6 +78,8 @@ class Tree {
 
   countAllChildren(type: string): number {
     const node = this.forestNodes[type];
-    return sum(node.children.map(c => c.amount * this.countAllChildren(c.node.type))) + 1;
+    return sum(
+      node.children.map((c) => c.amount * this.countAllChildren(c.node.type)),
+    ) + 1;
   }
 }

@@ -1,11 +1,11 @@
-import { Solution } from "src/utilities/solver";
+import { Solution } from "../../utilities/solver.ts";
 
 export default class Day05 implements Solution {
   async solvePart1(input: string[]) {
     return Math.max(
       ...input
         .map((i) => i.replace(/F|L/g, "0").replace(/B|R/g, "1"))
-        .map((i) => parseInt(i, 2))
+        .map((i) => parseInt(i, 2)),
     );
   }
 
@@ -18,7 +18,7 @@ export default class Day05 implements Solution {
           (value, _, arr) =>
             arr.includes(value) &&
             arr.includes(value + 2) &&
-            !arr.includes(value + 1)
+            !arr.includes(value + 1),
         )! + 1
     );
   }
