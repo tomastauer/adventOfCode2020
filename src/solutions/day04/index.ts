@@ -1,7 +1,7 @@
 import { isBetween } from "../../utilities/number";
 import { Solution } from "src/utilities/solver";
 
-export default class Day01 implements Solution {
+export default class Day04 implements Solution {
   async solvePart1(input: string[]) {
     const passports = new Passports(input);
     return passports.withRequiredFields().length;

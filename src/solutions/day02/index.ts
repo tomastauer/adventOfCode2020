@@ -1,6 +1,6 @@
 import { Solution } from "src/utilities/solver";
 
-export default class Day01 implements Solution {
+export default class Day02 implements Solution {
   async solvePart1(input: string[]) {
     return input
       .map((t) => {

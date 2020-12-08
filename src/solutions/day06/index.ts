@@ -1,7 +1,7 @@
 import { sum } from "../../utilities/array";
 import { Solution } from "src/utilities/solver";
 
-export default class Day01 implements Solution {
+export default class Day06 implements Solution {
   async solvePart1(input: string[]) {
     return sum(
       input
