@@ -1,4 +1,3 @@
-import { sum } from "../../utilities/array.ts";
 import { Solution } from "../../utilities/solver.ts";
 
 export default class Day09 implements Solution {
@@ -27,24 +26,14 @@ export default class Day09 implements Solution {
         return agg;
       },
       [] as number[][],
-    ).map(i => this.getCombinations(i.length - 1)).reduce((a,c)=> a*c,1);
+    ).map((i) => this.getCombinations(i.length - 1)).reduce((a, c) => a * c, 1);
   }
 
+  private cache = [1, 1, 2];
+
   getCombinations(input: number): number {
-    if (input < 0) {
-      return 0;
-    }
-
-    if (input === 0) {
-      return 1;
-    }
-
-    return sum(
-      [
-        this.getCombinations(input - 1),
-        this.getCombinations(input - 2),
-        this.getCombinations(input - 3),
-      ],
-    );
+    return (this.cache[input] = this.cache[input] ??
+      this.getCombinations(input - 1) + this.getCombinations(input - 2) +
+        this.getCombinations(input - 3));
   }
 }
