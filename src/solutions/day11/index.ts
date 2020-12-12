@@ -1,7 +1,7 @@
 import { isBetween } from "../../utilities/number.ts";
 import { Solution } from "../../utilities/solver.ts";
 
-export default class Day09 implements Solution {
+export default class Day11 implements Solution {
   async solvePart1(input: string[]) {
     const seats = new Seats(input, 4, "king");
     seats.run();

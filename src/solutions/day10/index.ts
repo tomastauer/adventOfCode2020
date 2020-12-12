@@ -1,6 +1,6 @@
 import { Solution } from "../../utilities/solver.ts";
 
-export default class Day09 implements Solution {
+export default class Day10 implements Solution {
   async solvePart1(input: string[]) {
     const g = input.map((i) => Number(i)).sort((a, b) => a - b).reduce(
       (agg, curr) => {
