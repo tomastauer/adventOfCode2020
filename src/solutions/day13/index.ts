@@ -1,6 +1,6 @@
 import { Solution } from "../../utilities/solver.ts";
 
-export default class Day12 implements Solution {
+export default class Day13 implements Solution {
   async solvePart1(input: string[]) {
     const desiredTime = Number(input[0]);
     const first = input[1].split(",").filter((c) => c !== "x").map((c) => ({
