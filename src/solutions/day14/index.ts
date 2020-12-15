@@ -5,7 +5,7 @@ import { replaceAt } from "../../utilities/string.ts";
 const maskPattern = /^mask = ([X01]+)/;
 const memoryPattern = /^mem\[(\d+)\] = (\d+)/;
 
-export default class Day12 implements Solution {
+export default class Day14 implements Solution {
   async solvePart1(input: string[]) {
     return sum(
       input.reduce((agg, curr) => {
