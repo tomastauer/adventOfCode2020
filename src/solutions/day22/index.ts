@@ -29,7 +29,7 @@ export default class Day22 implements Solution {
       return cards.map((c) => Number(c));
     });
 
-    const [, r1, r2] = this.playRecursively(player1, player2, 1);
+    const [, r1, r2] = this.playRecursively(player1, player2);
 
     const winner = r1.length ? r1 : r2;
 
